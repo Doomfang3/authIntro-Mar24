@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model, Types } = require('mongoose')
 
 // TODO: Please make sure you edit the Book model to whatever makes sense in this case
 const bookSchema = new Schema(
@@ -16,6 +16,10 @@ const bookSchema = new Schema(
     pages: {
       type: Number,
       required: [true, 'Pages is required.'],
+    },
+    createdBy: {
+      type: Types.ObjectId,
+      ref: 'User',
     },
   },
   {
